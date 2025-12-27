@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeCandy Pro - Learn English Typing | Growbits.tech</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-candy">
+            <div class="loading-dot"></div>
+            <div class="loading-dot"></div>
+            <div class="loading-dot"></div>
+        </div>
+        <div class="loading-text">Loading TypeCandy...</div>
+    </div>
+
+    <!-- Background Animation -->
+    <div class="bg-animation" id="bgAnimation"></div>
+
+    <!-- Combo Display -->
+    <div class="combo-display" id="comboDisplay"></div>
+
+    <!-- Achievement Popup -->
+    <div class="achievement-popup" id="achievementPopup">
+        <div class="achievement-icon">🏆</div>
+        <div class="achievement-text">
+            <h4 id="achievementTitle">Achievement Unlocked!</h4>
+            <p id="achievementDesc">You did something amazing!</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">🍬</span>TypeCandy
+            </div>
+            <p class="tagline">Master English Typing with Sweet Success!</p>
+        </header>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <span class="stat-icon">⭐</span>
+                <div>
+                    <div class="stat-value" id="totalStars">0</div>
+                    <div class="stat-label">Total Stars</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-icon">🏆</span>
+                <div>
+                    <div class="stat-value" id="highScore">0</div>
+                    <div class="stat-label">High Score</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-icon">🎯</span>
+                <div>
+                    <div class="stat-value" id="accuracy">0%</div>
+                    <div class="stat-label">Best Accuracy</div>
+                </div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-icon">⚡</span>
+                <div>
+                    <div class="stat-value" id="bestWPM">0</div>
+                    <div class="stat-label">Best WPM</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active" data-screen="home">🏠 Home</button>
+            <button class="nav-tab" data-screen="game">🎮 Play</button>
+            <button class="nav-tab" data-screen="leaderboard">🏆 Leaderboard</button>
+            <button class="nav-tab" data-screen="settings">⚙️ Settings</button>
+        </nav>
+
+        <!-- Home Screen -->
+        <section class="screen active" id="homeScreen">
+            <div class="mode-grid">
+                <div class="mode-card" data-mode="words">
+                    <span class="mode-badge">Popular</span>
+                    <span class="mode-icon">📝</span>
+                    <h3 class="mode-title">Word Rush</h3>
+                    <p class="mode-desc">Type individual words as fast as you can! Perfect for beginners.</p>
+                </div>
+                <div class="mode-card" data-mode="sentences">
+                    <span class="mode-icon">📖</span>
+                    <h3 class="mode-title">Sentence Sprint</h3>
+                    <p class="mode-desc">Complete full sentences to improve your typing flow.</p>
+                </div>
+                <div class="mode-card" data-mode="challenge">
+                    <span class="mode-badge">Hard</span>
+                    <span class="mode-icon">🔥</span>
+                    <h3 class="mode-title">Challenge Mode</h3>
+                    <p class="mode-desc">Race against time with increasing difficulty!</p>
+                </div>
+                <div class="mode-card" data-mode="practice">
+                    <span class="mode-icon">🎓</span>
+                    <h3 class="mode-title">Practice Zone</h3>
+                    <p class="mode-desc">Relaxed practice without time pressure. Learn at your pace.</p>
+                </div>
+                <div class="mode-card" data-mode="quotes">
+                    <span class="mode-icon">💬</span>
+                    <h3 class="mode-title">Famous Quotes</h3>
+                    <p class="mode-desc">Type inspiring quotes from famous personalities.</p>
+                </div>
+                <div class="mode-card" data-mode="code">
+                    <span class="mode-badge">New</span>
+                    <span class="mode-icon">💻</span>
+                    <h3 class="mode-title">Code Typing</h3>
+                    <p class="mode-desc">Practice typing code snippets and programming syntax.</p>
+                </div>
+                <div class="mode-card" data-mode="infinity"
+                    style="background: linear-gradient(145deg, rgba(196, 78, 255, 0.3), rgba(78, 205, 196, 0.2)); border-color: rgba(196, 78, 255, 0.4);">
+                    <span class="mode-badge" style="background: linear-gradient(45deg, #c44eff, #4ecdc4);">∞ HOT</span>
+                    <span class="mode-icon">🌌</span>
+                    <h3 class="mode-title">Infinity Mode</h3>
+                    <p class="mode-desc">Endless levels! Difficulty increases as you progress. Earn bonus time each
+                        level up!</p>
+                </div>
+                <div class="mode-card" data-mode="levels"
+                    style="background: linear-gradient(145deg, rgba(255, 230, 109, 0.2), rgba(255, 159, 67, 0.2)); border-color: rgba(255, 230, 109, 0.4);">
+                    <span class="mode-badge" style="background: linear-gradient(45deg, #ffe66d, #ff9f43);">⭐ NEW</span>
+                    <span class="mode-icon">🎯</span>
+                    <h3 class="mode-title">Level Mode</h3>
+                    <p class="mode-desc">100+ progressive levels! Boss battles every 5 levels! Complete all to become a
+                        master!</p>
+                </div>
+            </div>
+
+            <div class="difficulty-section">
+                <h2 class="section-title">Select Difficulty</h2>
+                <div class="difficulty-options">
+                    <button class="difficulty-btn easy selected" data-difficulty="easy">
+                        🌱 Easy
+                    </button>
+                    <button class="difficulty-btn medium" data-difficulty="medium">
+                        🌿 Medium
+                    </button>
+                    <button class="difficulty-btn hard" data-difficulty="hard">
+                        🌶️ Hard
+                    </button>
+                    <button class="difficulty-btn expert" data-difficulty="expert">
+                        👑 Expert
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Screen -->
+        <section class="screen" id="gameScreen">
+            <div class="game-container">
+                <div class="game-header">
+                    <div class="game-info">
+                        <div class="game-stat">
+                            <span class="game-stat-icon">📊</span>
+                            <span class="game-stat-value" id="gameScore">0</span>
+                        </div>
+                        <div class="game-stat">
+                            <span class="game-stat-icon">🔥</span>
+                            <span class="game-stat-value" id="gameCombo">x1</span>
+                        </div>
+                        <div class="game-stat">
+                            <span class="game-stat-icon">⚡</span>
+                            <span class="game-stat-value" id="gameWPM">0 WPM</span>
+                        </div>
+                        <div class="game-stat" id="levelStat"
+                            style="display: none; background: linear-gradient(45deg, rgba(196,78,255,0.3), rgba(78,205,196,0.3));">
+                            <span class="game-stat-icon">🎯</span>
+                            <span class="game-stat-value" id="currentLevelDisplay">Level 1</span>
+                        </div>
+                    </div>
+                    <div class="lives-container" id="livesContainer">
+                        <span class="life">❤️</span>
+                        <span class="life">❤️</span>
+                        <span class="life">❤️</span>
+                    </div>
+                </div>
+
+                <div id="levelBarContainer"
+                    style="display: none; margin-bottom: 15px; background: rgba(255,255,255,0.1); border-radius: 15px; padding: 12px 20px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                        <span id="levelText" style="font-family: 'Fredoka One', cursive; color: #c44eff;">Level 1</span>
+                        <span id="xpText" style="font-size: 0.85rem; color: rgba(255,255,255,0.7);">XP: 0/100</span>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.1); border-radius: 10px; height: 8px; overflow: hidden;">
+                        <div id="xpBar"
+                            style="height: 100%; width: 0%; background: linear-gradient(90deg, #c44eff, #4ecdc4); transition: width 0.5s;">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="bossIndicator"
+                    style="display: none; text-align: center; margin-bottom: 15px; background: linear-gradient(45deg, #ff6b6b, #c44eff); padding: 10px 25px; border-radius: 20px; font-weight: 700; animation: pulse 1s infinite;">
+                    👹 BOSS LEVEL! Type fast to defeat the boss!
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+                    <span class="progress-text" id="progressText">0 / 10</span>
+                </div>
+
+                <div class="timer-container">
+                    <div class="timer" id="gameTimer">60</div>
+                </div>
+
+                <div class="word-display-container">
+                    <div class="word-display" id="wordDisplay"></div>
+                    <div id="hintText" style="color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-top: 10px;"></div>
+                </div>
+
+                <div class="input-container">
+                    <input type="text" class="typing-input" id="typingInput" placeholder="Start typing..."
+                        autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+                </div>
+
+                <div class="powerups-container">
+                    <button class="powerup-btn" id="freezeBtn">
+                        <span class="powerup-icon">❄️</span>
+                        Freeze Time
+                        <span class="powerup-count" id="freezeCount">3</span>
+                    </button>
+                    <button class="powerup-btn" id="skipBtn">
+                        <span class="powerup-icon">⏭️</span>
+                        Skip Word
+                        <span class="powerup-count" id="skipCount">2</span>
+                    </button>
+                    <button class="powerup-btn" id="hintBtn">
+                        <span class="powerup-icon">💡</span>
+                        Hint
+                        <span class="powerup-count" id="hintCount">3</span>
+                    </button>
+                </div>
+
+                <div class="game-controls">
+                    <button class="control-btn secondary" id="pauseBtn">⏸️ Pause</button>
+                    <button class="control-btn secondary" id="quitBtn">🚪 Quit</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leaderboard Screen -->
+        <section class="screen" id="leaderboardScreen">
+            <div class="leaderboard-container">
+                <div class="leaderboard-header">
+                    <h2 class="leaderboard-title">🏆 Leaderboard</h2>
+                    <p style="color: rgba(255,255,255,0.6);">Compete with players worldwide!</p>
+                </div>
+
+                <div class="leaderboard-tabs">
+                    <button class="leaderboard-tab active" data-period="all">All Time</button>
+                    <button class="leaderboard-tab" data-period="weekly">This Week</button>
+                    <button class="leaderboard-tab" data-period="daily">Today</button>
+                </div>
+
+                <div class="leaderboard-list" id="leaderboardList">
+                    <!-- Leaderboard items will be inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Screen -->
+        <section class="screen" id="settingsScreen">
+            <div class="settings-container">
+                <div class="settings-section">
+                    <h3 class="settings-section-title">👤 Profile</h3>
+                    <div class="setting-item">
+                        <div>
+                            <div class="setting-label">Player Name</div>
+                            <div class="setting-desc">Your name on the leaderboard</div>
+                        </div>
+                        <input type="text" class="settings-input" id="playerName" placeholder="Enter your name"
+                            maxlength="15">
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3 class="settings-section-title">🔊 Sound</h3>
+                    <div class="setting-item">
+                        <div>
+                            <div class="setting-label">Sound Effects</div>
+                            <div class="setting-desc">Enable typing sounds</div>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="soundToggle" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div>
+                            <div class="setting-label">Volume</div>
+                        </div>
+                        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="70">
+                    </div>
+                    <div class="setting-item">
+                        <div>
+                            <div class="setting-label">Background Music</div>
+                            <div class="setting-desc">Play music during game</div>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="musicToggle">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3 class="settings-section-title">🎮 Gameplay</h3>
+                    <div class="setting-item">
+                        <div>
+                            <div class="setting-label">Show Keyboard</div>
+                            <div class="setting-desc">Display virtual keyboard hints</div>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="keyboardToggle">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <div>
+                            <div class="setting-label">Vibration</div>
+                            <div class="setting-desc">Haptic feedback on mobile</div>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="vibrationToggle" checked>
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3 class="settings-section-title">📊 Data</h3>
+                    <div class="setting-item">
+                        <div>
+                            <div class="setting-label">Reset Progress</div>
+                            <div class="setting-desc">Clear all your game data</div>
+                        </div>
+                        <button class="control-btn secondary" id="resetBtn" style="padding: 10px 20px;">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-logo">🍬 TypeCandy Pro</div>
+            <div class="developer-info">
+                <p>Developed with ❤️ by <strong>Habibur Rahman</strong></p>
+                <p>© 2024 <a href="https://growbits.tech" target="_blank">Growbits.tech</a> - All Rights Reserved</p>
+            </div>
+            <div class="social-links">
+                <div class="social-link" href="mailto:habiburrahmankaif1215@gmail.com">📧</div>
+                <div class="social-link" href="https://x.com/HabiburKai72799">🐦</div>
+                <div class="social-link" href="https://github.com/habiburrahmankaif">📘</div>
+                <div class="social-link">📸</div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Results Modal -->
+    <div class="modal-overlay" id="resultsModal">
+        <div class="modal">
+            <h2 class="modal-title" id="modalTitle">Level Complete!</h2>
+            <div class="stars-display" id="starsDisplay">
+                <span class="star">⭐</span>
+                <span class="star">⭐</span>
+                <span class="star">⭐</span>
+            </div>
+            <div id="newRecordBadge" class="new-record" style="display: none;">🎉 New Record!</div>
+            <div class="result-stats">
+                <div class="result-stat">
+                    <div class="result-stat-value" id="resultScore">0</div>
+                    <div class="result-stat-label">Score</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="resultAccuracy">0%</div>
+                    <div class="result-stat-label">Accuracy</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="resultWPM">0</div>
+                    <div class="result-stat-label">WPM</div>
+                </div>
+                <div class="result-stat">
+                    <div class="result-stat-value" id="resultCombo">0</div>
+                    <div class="result-stat-label">Max Combo</div>
+                </div>
+            </div>
+            <div id="levelCompleteBadge"
+                style="display: none; background: linear-gradient(45deg, #c44eff, #4ecdc4); padding: 8px 25px; border-radius: 20px; font-weight: 700; margin-bottom: 15px;">
+                Level <span id="completedLevelNum">1</span> Complete!
+            </div>
+            <div class="modal-buttons">
+                <button class="control-btn primary" id="nextLevelBtn"
+                    style="display: none; background: linear-gradient(45deg, #26de81, #4ecdc4);">➡️ Next Level</button>
+                <button class="control-btn primary" id="playAgainBtn">🔄 Play Again</button>
+                <button class="control-btn secondary" id="homeBtn">🏠 Home</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
